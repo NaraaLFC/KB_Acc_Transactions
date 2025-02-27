@@ -161,5 +161,8 @@ if __name__ == "__main__":
         api = KhanBankAPI()
         last10_txn = api.get_last10(KHAN_ACCOUNT)
         print("Last 10:", last10_txn)
+        actual_balance = last10_txn[0].get('balance')
+        print(f"\nJSON:{json.dumps(last10_txn, indent=4, ensure_ascii=False)}")
+        print(f"\nULDEGDEL: {str(actual_balance)}\n")
     except Exception as e:
         print("Error:", e)
